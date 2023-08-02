@@ -3,9 +3,10 @@ Swipeable layout for Android
 
 
 
-## 2. Usage
 
-![sss](https://github.com/akardas16/SimpleSwipeMenuLayout-SSML/assets/28716129/94923cb9-e4f0-4735-a910-a98eef353f3c)
+<p align="center">
+  <img alt="Light" src="https://github.com/akardas16/SimpleSwipeMenuLayout-SSML/assets/28716129/94923cb9-e4f0-4735-a910-a98eef353f3c" width="16%">
+
 
 ## 3. Licence
 
