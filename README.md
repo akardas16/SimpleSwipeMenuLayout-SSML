@@ -1,91 +1,11 @@
 # Simple Swipe Menu Layout - SSML
 Swipeable layout for Android
 
-## 0. Preview
 
-![Imgur](https://i.imgur.com/9Ny55DA.jpg)
-![Imgur](https://i.imgur.com/2jas6aK.gif)
-![Imgur](https://i.imgur.com/pVMGYjD.jpg)
-
-## 1. Dependency
-
-```
-implementation 'io.sulek.ssml:simpleswipemenulayout:1.0.4'
-```
-```
-repositories {
-    maven {
-        url  "https://jcenter.bintray.com" 
-    }
-}
-```
 
 ## 2. Usage
 
-### XML
-
-```
-<app:io.sulek.ssml.SimpleSwipeMenuLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/swipeContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:dynamicMenuWidth="false"
-        app:menuSide="Right">
-
-    <LinearLayout
-            android:id="@+id/backgroundContainer"
-            android:background="#BBBBBB"
-            android:layout_width="200dp"
-            android:layout_height="0dp">
-
-    <FrameLayout
-            android:id="@+id/foregroundContainer"
-            android:background="#EEEEEE"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-</app:io.sulek.ssml.SimpleSwipeMenuLayout>
-```
-
-#### important:
-- all layouts (main SimpleSwipeMenuLayout, foreground container and background container) must have IDs
-- background container should have 0dp height
-- choose menu side: app:menuSide="Left|Right"
-- app:dynamicMenuWidth="true|false"
-    - false use for better performance, background container width must be specified (like in example 200dp)
-    - true use for dynamic menu width, when background container has wrap_content width
-
-
-### Recycler View
-
-```
-recyclerView.layoutManager = SSMLLinearLayoutManager(context)
-```
-
-
-### Store and restore state
-
-#### Keep state in model
-```
-data class SampleData(..., var isExpanded: Boolean = false)
-```
-
-#### Listen for changes
-```
-itemView.swipeContainer.setOnSwipeListener(object : OnSwipeListener {
-    override fun onSwipe(isExpanded: Boolean) {
-        sampleData.isExpanded = isExpanded
-    }
-})
-```
-
-### Apply
-```
-// at the end of binding data function, this function perform some measurements
-itemView.swipeContainer.apply(sampleData.isExpanded)
-```
+![sss](https://github.com/akardas16/SimpleSwipeMenuLayout-SSML/assets/28716129/94923cb9-e4f0-4735-a910-a98eef353f3c)
 
 ## 3. Licence
 
