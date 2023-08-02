@@ -1,32 +1,16 @@
-apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
-publish {
 
-    def groupProjectID = 'io.sulek.ssml'
-    def artifactProjectID = 'simpleswipemenulayout'
-    def publishVersionID = '1.0.4'
-
-    userOrg = 'sulo61'
-    repoName = 'Android'
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = 'Swipeable layout for Android'
-    website = 'https://github.com/sulo61/SimpleSwipeMenuLayout-SSML'
-}
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 5
-        versionName "1.0.4"
+        targetSdkVersion 31
     }
 
     buildTypes {

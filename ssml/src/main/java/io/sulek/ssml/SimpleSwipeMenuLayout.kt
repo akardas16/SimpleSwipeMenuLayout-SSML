@@ -38,7 +38,7 @@ class SimpleSwipeMenuLayout @JvmOverloads constructor(context: Context, attrs: A
 
     @SuppressLint("Recycle")
     private fun getAttributes(context: Context, attributeSet: AttributeSet) {
-        context.obtainStyledAttributes(attributeSet, R.styleable.SimpleSwipeMenuLayout)?.let {
+        context.obtainStyledAttributes(attributeSet, R.styleable.SimpleSwipeMenuLayout).let {
             isMenuOnTheLeft = false
             it.getInt(R.styleable.SimpleSwipeMenuLayout_menuSide, ATTR_LEFT_INT_VALUE)
             dynamicMenuWidth = true
