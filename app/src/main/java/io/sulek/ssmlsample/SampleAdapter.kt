@@ -10,7 +10,6 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.github.hariprasanths.bounceview.BounceView
-import io.sulek.ssml.OnSwipeListener
 import kotlinx.android.synthetic.main.sample_holder.view.*
 import java.util.*
 
@@ -53,11 +52,10 @@ class SampleAdapter(private val context: Context) : RecyclerView.Adapter<SampleA
     inner class SampleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setSampleData(context: Context,sampleData: SampleData) {
-            itemView.swipeContainer.setOnSwipeListener(object : OnSwipeListener {
-                override fun onSwipe(isExpanded: Boolean) {
-                    sampleData.isExpanded = isExpanded
-                }
-            })
+
+            itemView.swipeContainer.detectSwipe = {
+                sampleData.isExpanded = it
+            }
 
             val myView = itemView.swipeContainer.findViewById<FrameLayout>(R.id.button2)
             BounceView.addAnimTo(myView).setScaleForPopOutAnim(1f,1f).setScaleForPushInAnim(0.96f,0.96f)

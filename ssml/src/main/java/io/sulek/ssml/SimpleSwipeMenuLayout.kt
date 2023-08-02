@@ -19,7 +19,6 @@ class SimpleSwipeMenuLayout @JvmOverloads constructor(context: Context, attrs: A
     private lateinit var foregroundParams: LayoutParams
 
     private var onClickListener: OnClickListener? = null
-    private var onSwipeListener: OnSwipeListener? = null
 
     private var positionOnActionDown = 0.0f
     private var distanceAfterMove = 0.0f
@@ -31,6 +30,7 @@ class SimpleSwipeMenuLayout @JvmOverloads constructor(context: Context, attrs: A
     private var isMenuOnTheLeft = true
     private var dynamicMenuWidth = true
     private var measureBackgroundContainerWidth = true
+    var detectSwipe:(isSwiped:Boolean) -> Unit = {}
 
     init {
         attrs?.let { getAttributes(context, it) }
@@ -147,7 +147,8 @@ class SimpleSwipeMenuLayout @JvmOverloads constructor(context: Context, attrs: A
         if (calculatedNewMargin > halfBackgroundContainerWidth) expand()
         else collapse()
 
-        onSwipeListener?.onSwipe(isExpanded)
+        detectSwipe.invoke(isExpanded)
+
 
         if (!loseTouch && !wasSwiping) onClickListener?.onClick(this)
     }
@@ -206,9 +207,6 @@ class SimpleSwipeMenuLayout @JvmOverloads constructor(context: Context, attrs: A
         return isSwiping
     }
 
-    fun setOnSwipeListener(onSwipeListener: OnSwipeListener) {
-        this.onSwipeListener = onSwipeListener
-    }
 
     override fun setOnClickListener(onClickListener: OnClickListener?) {
         this.onClickListener = onClickListener
